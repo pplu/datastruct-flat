@@ -9,16 +9,29 @@ use Test::More;
 {
   my $flattener = DataStruct::Flat->new;
   is_deeply({
+    'a' => 'string',
     'x' => 1,
     'y.0' => 42,
-    'y.1' => 43,
+    'y.1' => 'second y',
     'y.2' => 44,
-    'z.0.x' => 88,
+    'z.0.x' => 'the x',
     'z.0.y' => 89,
   }, $flattener->flatten({
+    a => 'string',
     x => 1,
-    y => [ 42, 43, 44 ],
-    z => [ { x => 88, y => 89 } ],
+    y => [ 42, 'second y', 44 ],
+    z => [ { x => 'the x', y => 89 } ],
+  }), 'Got correct flattened datastructure');
+}
+
+{
+  my $flattener = DataStruct::Flat->new;
+  is_deeply({
+    "a\\.dotted\\.entry" => 'string',
+    "b.dotted\\.entry" => 'string2',
+  }, $flattener->flatten({
+    'a.dotted.entry' => 'string',
+    b => { 'dotted.entry' => 'string2' },
   }), 'Got correct flattened datastructure');
 }
 
