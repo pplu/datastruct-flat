@@ -1,8 +1,6 @@
 package DataStruct::Flat;
   use Moo;
-
-  #has HashDelimiter => (is => 'ro', default => sub { '.' });
-  #has ArrayDelimiter => (is => 'ro', default => sub { '.' });
+  our $VERSION = '0.01';
 
   sub flatten {
     my ($self, $struct) = @_;
