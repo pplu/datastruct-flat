@@ -84,6 +84,7 @@ The source code is located here: https://github.com/pplu/datastruct-flat
 L<Hash::Flatten>
 
 =head1 AUTHOR
+
     Jose Luis Martinez
     CPAN ID: JLMARTIN
     CAPSiDE
